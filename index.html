@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CF Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Happy Chegg</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://wa.me/+919837302861" target="_blank">Whatsapp</a>
+            </li>
+            
+            
+           
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav> <div class="center">
+        <h1>CF Calculator</h1>
+    <form action="#">
+        <label for="likes">Likes:</label>
+        <input type="number" id="likes" name="likes" required>
+        <br>
+        <label for="dislikes">Dislikes:</label>
+        <input type="number" id="dislikes" name="dislikes" required>
+        <br>
+        <button type="button" onclick="calculate()" id="but">Current CF score</button>
+    </form>
+
+    <p id="result"></p>
+    <h3>How many like need to cover minmum 80% CF score </h3>
+    <p id="cf"></p>
+    <h3 class="need"></h3>
+      </div>
+    
+
+    <script>
+        let finay =  document.querySelector(".need");
+        let but =document.querySelector("#but");
+        // but.addEventListener('click',function(y){
+        //     document.body.style.backgroundColor ='green';
+        // });
+        function calculate() {
+            let likes = document.getElementById("likes").value;
+            let dislikes = document.getElementById("dislikes").value;
+
+            if (likes === "" || dislikes === "") {
+                alert("Please enter both values!");
+                return;
+            }
+
+            likes = parseInt(likes);
+            dislikes = parseInt(dislikes);
+
+            let total = likes + dislikes;
+            let percentage = (likes / total) * 100;
+            if(percentage<=80.00)
+            {
+                let cal = eval(dislikes*5-likes*2);
+                if(cal>0)
+                {
+                    finay.innerHTML=cal;
+                }
+                else{
+                    finay.innerHTML="NO NEED";
+                }
+            }
+
+
+            document.getElementById("result").innerHTML = `Like Percentage: ${percentage.toFixed(2)}%`;
+            document.getElementById("cf").innerHTML=`Required No of Upvote: ${finall}`;
+          
+
+        }
+    </script>
+</body>
+</html>
